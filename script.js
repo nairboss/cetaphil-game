@@ -19,20 +19,20 @@ function nextScene() {
 
     switch(currentScene) {
         case 0:
-            dialogue.innerText = "You wake up with your skin feeling a bit dry. What's your first move?";
+            dialogue.innerText = "You wake up on a chilly winter morning, and your skin feels tight and dry. What's your first move?";
             sceneButton.innerText = "Apply Moisturizer";
             sceneButton.setAttribute('onclick', 'chooseOption("moisturize")');
             character.src = 'character-think.png';
             break;
         case 1:
-            dialogue.innerText = "It's a bright sunny day! How do you shield your skin?";
-            sceneButton.innerText = "Use Sunscreen";
+            dialogue.innerText = "As you step outside, the cold wind hits your face. How do you protect your skin?";
+            sceneButton.innerText = "Use Sunscreen with Moisturizer";
             sceneButton.setAttribute('onclick', 'chooseOption("sunscreen")');
             character.src = 'character-sun.jpeg';
             break;
         case 2:
-            dialogue.innerText = "You notice some redness. What's your plan of action?";
-            sceneButton.innerText = "Soothe with Cream";
+            dialogue.innerText = "After a long day, you notice your skin has become red and irritated. What’s your plan of action?";
+            sceneButton.innerText = "Soothe with Moisturizing Cream";
             sceneButton.setAttribute('onclick', 'chooseOption("soothe")');
             character.src = 'character-redness.png';
             break;
@@ -74,17 +74,17 @@ function showResults() {
 
     let recommendationText = '';
     if (skinType === 'Dry Skin') {
-        recommendationText = 'We recommend Cetaphil Moisturizing Cream for deep hydration.';
+        recommendationText = 'We recommend Cetaphil Moisturizing Cream for deep hydration and protection against winter dryness.';
     } else if (skinType === 'Oily Skin') {
-        recommendationText = 'We recommend Cetaphil Oil Control Moisturizer to balance your skin.';
+        recommendationText = 'We recommend Cetaphil Oil Control Moisturizer to balance your skin even in cold weather.';
     } else if (skinType === 'Sensitive Skin') {
-        recommendationText = 'We recommend Cetaphil Moisturizing Lotion to soothe and protect your skin.';
+        recommendationText = 'We recommend Cetaphil Moisturizing Lotion to soothe and protect your sensitive skin this winter.';
     } else {
-        recommendationText = 'We recommend Cetaphil Daily Hydrating Lotion for balanced moisture.';
+        recommendationText = 'We recommend Cetaphil Daily Hydrating Lotion for balanced moisture throughout the winter season.';
     }
     document.getElementById('recommendation').innerText = recommendationText;
 }
 
 function claimTrialPack() {
-    alert("Your trial pack is on its way!");
+    alert("Your trial pack is on its way! Stay hydrated this winter!");
 }
