@@ -1,43 +1,65 @@
+let currentScene = 0;
 let skinTypeScore = {
     dry: 0,
     oily: 0,
     sensitive: 0,
-    balanced: 0
+    normal: 0
 };
 
 function startGame() {
     document.getElementById('welcome-screen').style.display = 'none';
     document.getElementById('game-screen').style.display = 'block';
+    nextScene();
 }
 
-function submitQuiz() {
-    const form = document.forms['quiz-form'];
+function nextScene() {
+    const dialogue = document.getElementById('dialogue');
+    const character = document.getElementById('character');
+    const sceneButton = document.querySelector('#scene button');
 
-    // Calculate scores based on the selected answers
-    skinTypeScore.dry = countValues(form, ['dry']);
-    skinTypeScore.oily = countValues(form, ['oily']);
-    skinTypeScore.sensitive = countValues(form, ['sensitive']);
-    skinTypeScore.balanced = countValues(form, ['balanced']);
-
-    // Show results based on the highest score
-    showResults();
-}
-
-function countValues(form, values) {
-    let count = 0;
-    for (let i = 1; i <= 6; i++) {
-        if (values.includes(form[`q${i}`].value)) {
-            count++;
-        }
+    switch(currentScene) {
+        case 0:
+            dialogue.innerText = "You wake up feeling a bit dry. What do you do?";
+            sceneButton.innerText = "Moisturize";
+            sceneButton.setAttribute('onclick', 'chooseOption("moisturize")');
+            character.src = 'character-think.png';
+            break;
+        case 1:
+            dialogue.innerText = "It's a sunny day! How do you protect your skin?";
+            sceneButton.innerText = "Apply Sunscreen";
+            sceneButton.setAttribute('onclick', 'chooseOption("sunscreen")');
+            character.src = 'character-sun.jpeg';
+            break;
+        case 2:
+            dialogue.innerText = "You notice some redness. What’s your next move?";
+            sceneButton.innerText = "Soothe it";
+            sceneButton.setAttribute('onclick', 'chooseOption("soothe")');
+            character.src = 'character-redness.png';
+            break;
+        case 3:
+            showResults();
+            break;
     }
-    return count;
+    currentScene++;
+}
+
+function chooseOption(option) {
+    if (option === 'moisturize') {
+        skinTypeScore.dry++;
+    } else if (option === 'sunscreen') {
+        skinTypeScore.sensitive++;
+    } else if (option === 'soothe') {
+        skinTypeScore.sensitive++;
+    }
+
+    nextScene();
 }
 
 function showResults() {
     document.getElementById('game-screen').style.display = 'none';
 
-    let skinType = 'Balanced Skin';
-    let maxScore = Math.max(skinTypeScore.dry, skinTypeScore.oily, skinTypeScore.sensitive, skinTypeScore.balanced);
+    let skinType = 'Normal Skin';
+    let maxScore = Math.max(skinTypeScore.dry, skinTypeScore.oily, skinTypeScore.sensitive, skinTypeScore.normal);
 
     if (skinTypeScore.dry === maxScore) {
         skinType = 'Dry Skin';
@@ -52,11 +74,11 @@ function showResults() {
 
     let recommendationText = '';
     if (skinType === 'Dry Skin') {
-        recommendationText = 'We recommend Cetaphil Moisturizing Cream for deep hydration and protection against dryness.';
+        recommendationText = 'We recommend Cetaphil Moisturizing Cream for deep hydration.';
     } else if (skinType === 'Oily Skin') {
         recommendationText = 'We recommend Cetaphil Oil Control Moisturizer to balance your skin.';
     } else if (skinType === 'Sensitive Skin') {
-        recommendationText = 'We recommend Cetaphil Moisturizing Lotion to soothe and protect your sensitive skin.';
+        recommendationText = 'We recommend Cetaphil Moisturizing Lotion to soothe and protect your skin.';
     } else {
         recommendationText = 'We recommend Cetaphil Daily Hydrating Lotion for balanced moisture.';
     }
@@ -65,4 +87,5 @@ function showResults() {
 
 function claimTrialPack() {
     alert("Your trial pack is on its way!");
+    // Implement form submission or redirect here.
 }
