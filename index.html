@@ -16,8 +16,45 @@
             <img id="character" src="character.jpeg" alt="Character">
         </div>
         <div id="scene">
-            <p id="dialogue">Hello! Let's find out how to take care of your skin.</p>
-            <button onclick="nextScene()">Next</button>
+            <form id="quiz-form">
+                <p>1. How does your skin feel most of the time?</p>
+                <input type="radio" name="q1" value="dry"> A) Dry and tight<br>
+                <input type="radio" name="q1" value="oily"> B) Oily and shiny<br>
+                <input type="radio" name="q1" value="balanced"> C) Balanced and comfortable<br>
+                <input type="radio" name="q1" value="sensitive"> D) Sensitive and easily irritated<br><br>
+
+                <p>2. How often do you experience breakouts?</p>
+                <input type="radio" name="q2" value="rare"> A) Rarely, if ever<br>
+                <input type="radio" name="q2" value="often"> B) Often, especially on my T-zone<br>
+                <input type="radio" name="q2" value="occasional"> C) Occasionally, here and there<br>
+                <input type="radio" name="q2" value="reactive"> D) Almost never, but my skin reacts to new products<br><br>
+
+                <p>3. How does your skin react to the weather?</p>
+                <input type="radio" name="q3" value="dry"> A) It gets drier in cold weather<br>
+                <input type="radio" name="q3" value="oily"> B) It becomes oilier in warm weather<br>
+                <input type="radio" name="q3" value="balanced"> C) It stays the same most of the time<br>
+                <input type="radio" name="q3" value="sensitive"> D) It gets irritated with extreme changes<br><br>
+
+                <p>4. How do you describe your pores?</p>
+                <input type="radio" name="q4" value="small"> A) Small and almost invisible<br>
+                <input type="radio" name="q4" value="large"> B) Large and noticeable, especially on my T-zone<br>
+                <input type="radio" name="q4" value="balanced"> C) Visible but not too large<br>
+                <input type="radio" name="q4" value="clogged"> D) Small but tend to get clogged easily<br><br>
+
+                <p>5. What’s your biggest skincare concern?</p>
+                <input type="radio" name="q5" value="dry"> A) Dryness and flakiness<br>
+                <input type="radio" name="q5" value="oily"> B) Excess oil and shine<br>
+                <input type="radio" name="q5" value="balanced"> C) Keeping my skin balanced<br>
+                <input type="radio" name="q5" value="sensitive"> D) Redness and sensitivity<br><br>
+
+                <p>6. How does your skin feel after cleansing?</p>
+                <input type="radio" name="q6" value="dry"> A) Tight and dry<br>
+                <input type="radio" name="q6" value="oily"> B) Fresh but oily soon after<br>
+                <input type="radio" name="q6" value="balanced"> C) Clean and normal<br>
+                <input type="radio" name="q6" value="sensitive"> D) Slightly irritated or red<br><br>
+
+                <button type="button" onclick="submitQuiz()">Submit</button>
+            </form>
         </div>
     </div>
 
