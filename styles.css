@@ -10,22 +10,8 @@ h1, h2 {
     color: #0056b3;
 }
 
-#welcome-screen, #game-screen, #results-screen, #rewards-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    background-color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
 #welcome-screen {
-    background-image: url('cetaphil_gentle_skin_cleanser_moisturising_lotion_125ml_100ml_7.jpg');
+    background-image: url('image.png');  /* Use the uploaded image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,6 +24,29 @@ h1, h2 {
     box-sizing: border-box;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#start-button {
+    background: transparent;
+    border: none;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#game-screen, #results-screen, #rewards-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #character-area {
@@ -86,13 +95,4 @@ button:hover {
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-}
-
-#welcome-screen h1, #welcome-screen button {
-    background-color: rgba(0, 86, 179, 0.8);
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-shadow: none;
-    color: #ffffff;
 }
