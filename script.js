@@ -1,65 +1,43 @@
-let currentScene = 0;
 let skinTypeScore = {
     dry: 0,
     oily: 0,
     sensitive: 0,
-    normal: 0
+    balanced: 0
 };
 
 function startGame() {
     document.getElementById('welcome-screen').style.display = 'none';
     document.getElementById('game-screen').style.display = 'block';
-    nextScene();
 }
 
-function nextScene() {
-    const dialogue = document.getElementById('dialogue');
-    const character = document.getElementById('character');
-    const sceneButton = document.querySelector('#scene button');
+function submitQuiz() {
+    const form = document.forms['quiz-form'];
 
-    switch(currentScene) {
-        case 0:
-            dialogue.innerText = "You wake up on a chilly winter morning, and your skin feels tight and dry. What's your first move?";
-            sceneButton.innerText = "Apply Moisturizer";
-            sceneButton.setAttribute('onclick', 'chooseOption("moisturize")');
-            character.src = 'character-thinking.webp';
-            break;
-        case 1:
-            dialogue.innerText = "As you step outside, the cold wind hits your face. How do you protect your skin?";
-            sceneButton.innerText = "Use Sunscreen with Moisturizer";
-            sceneButton.setAttribute('onclick', 'chooseOption("sunscreen")');
-            character.src = 'character-sun.webp';
-            break;
-        case 2:
-            dialogue.innerText = "After a long day, you notice your skin has become red and irritated. What’s your plan of action?";
-            sceneButton.innerText = "Soothe with Moisturizing Cream";
-            sceneButton.setAttribute('onclick', 'chooseOption("soothe")');
-            character.src = 'character-redness.webp';
-            break;
-        case 3:
-            showResults();
-            break;
-    }
-    currentScene++;
+    // Calculate scores based on the selected answers
+    skinTypeScore.dry = countValues(form, ['dry']);
+    skinTypeScore.oily = countValues(form, ['oily']);
+    skinTypeScore.sensitive = countValues(form, ['sensitive']);
+    skinTypeScore.balanced = countValues(form, ['balanced']);
+
+    // Show results based on the highest score
+    showResults();
 }
 
-function chooseOption(option) {
-    if (option === 'moisturize') {
-        skinTypeScore.dry++;
-    } else if (option === 'sunscreen') {
-        skinTypeScore.sensitive++;
-    } else if (option === 'soothe') {
-        skinTypeScore.sensitive++;
+function countValues(form, values) {
+    let count = 0;
+    for (let i = 1; i <= 6; i++) {
+        if (values.includes(form[`q${i}`].value)) {
+            count++;
+        }
     }
-
-    nextScene();
+    return count;
 }
 
 function showResults() {
     document.getElementById('game-screen').style.display = 'none';
 
-    let skinType = 'Normal Skin';
-    let maxScore = Math.max(skinTypeScore.dry, skinTypeScore.oily, skinTypeScore.sensitive, skinTypeScore.normal);
+    let skinType = 'Balanced Skin';
+    let maxScore = Math.max(skinTypeScore.dry, skinTypeScore.oily, skinTypeScore.sensitive, skinTypeScore.balanced);
 
     if (skinTypeScore.dry === maxScore) {
         skinType = 'Dry Skin';
@@ -74,17 +52,17 @@ function showResults() {
 
     let recommendationText = '';
     if (skinType === 'Dry Skin') {
-        recommendationText = 'We recommend Cetaphil Moisturizing Cream for deep hydration and protection against winter dryness.';
+        recommendationText = 'We recommend Cetaphil Moisturizing Cream for deep hydration and protection against dryness.';
     } else if (skinType === 'Oily Skin') {
-        recommendationText = 'We recommend Cetaphil Oil Control Moisturizer to balance your skin even in cold weather.';
+        recommendationText = 'We recommend Cetaphil Oil Control Moisturizer to balance your skin.';
     } else if (skinType === 'Sensitive Skin') {
-        recommendationText = 'We recommend Cetaphil Moisturizing Lotion to soothe and protect your sensitive skin this winter.';
+        recommendationText = 'We recommend Cetaphil Moisturizing Lotion to soothe and protect your sensitive skin.';
     } else {
-        recommendationText = 'We recommend Cetaphil Daily Hydrating Lotion for balanced moisture throughout the winter season.';
+        recommendationText = 'We recommend Cetaphil Daily Hydrating Lotion for balanced moisture.';
     }
     document.getElementById('recommendation').innerText = recommendationText;
 }
 
 function claimTrialPack() {
-    alert("Your trial pack is on its way! Stay hydrated this winter!");
+    alert("Your trial pack is on its way!");
 }
