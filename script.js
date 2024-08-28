@@ -22,19 +22,19 @@ function nextScene() {
             dialogue.innerText = "You wake up on a chilly winter morning, and your skin feels tight and dry. What's your first move?";
             sceneButton.innerText = "Apply Moisturizer";
             sceneButton.setAttribute('onclick', 'chooseOption("moisturize")');
-            character.src = 'character-think.png';
+            character.src = 'character-thinking.webp';
             break;
         case 1:
             dialogue.innerText = "As you step outside, the cold wind hits your face. How do you protect your skin?";
             sceneButton.innerText = "Use Sunscreen with Moisturizer";
             sceneButton.setAttribute('onclick', 'chooseOption("sunscreen")');
-            character.src = 'character-sun.jpeg';
+            character.src = 'character-sun.webp';
             break;
         case 2:
             dialogue.innerText = "After a long day, you notice your skin has become red and irritated. What’s your plan of action?";
             sceneButton.innerText = "Soothe with Moisturizing Cream";
             sceneButton.setAttribute('onclick', 'chooseOption("soothe")');
-            character.src = 'character-redness.png';
+            character.src = 'character-redness.webp';
             break;
         case 3:
             showResults();
