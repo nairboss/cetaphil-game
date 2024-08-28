@@ -1,3 +1,4 @@
+let currentScene = 0;
 let skinTypeScore = {
     dry: 0,
     oily: 0,
@@ -5,45 +6,58 @@ let skinTypeScore = {
     normal: 0
 };
 
-function startAdventure() {
+function startGame() {
     document.getElementById('welcome-screen').style.display = 'none';
-    document.getElementById('adventure-screen').style.display = 'block';
+    document.getElementById('game-screen').style.display = 'block';
+    nextScene();
 }
 
 function nextScene() {
-    document.getElementById('adventure-screen').style.display = 'none';
-    document.getElementById('scenario-1').style.display = 'block';
+    const dialogue = document.getElementById('dialogue');
+    const character = document.getElementById('character');
+    const sceneButton = document.querySelector('#scene button');
+
+    switch(currentScene) {
+        case 0:
+            dialogue.innerText = "You wake up feeling a bit dry. What do you do?";
+            sceneButton.innerText = "Moisturize";
+            sceneButton.setAttribute('onclick', 'chooseOption("moisturize")');
+            character.src = 'images/character-think.png';
+            break;
+        case 1:
+            dialogue.innerText = "It's a sunny day! How do you protect your skin?";
+            sceneButton.innerText = "Apply Sunscreen";
+            sceneButton.setAttribute('onclick', 'chooseOption("sunscreen")');
+            character.src = 'images/character-sun.png';
+            break;
+        case 2:
+            dialogue.innerText = "You notice some redness. What’s your next move?";
+            sceneButton.innerText = "Soothe it";
+            sceneButton.setAttribute('onclick', 'chooseOption("soothe")');
+            character.src = 'images/character-redness.png';
+            break;
+        case 3:
+            showResults();
+            break;
+    }
+    currentScene++;
 }
 
 function chooseOption(option) {
-    // Scoring logic based on user's choices
     if (option === 'moisturize') {
         skinTypeScore.dry++;
-    } else if (option === 'ignore') {
-        skinTypeScore.normal++;
     } else if (option === 'sunscreen') {
         skinTypeScore.sensitive++;
-    } else if (option === 'nothing') {
-        skinTypeScore.oily++;
     } else if (option === 'soothe') {
         skinTypeScore.sensitive++;
-    } else if (option === 'ignore_redness') {
-        skinTypeScore.normal++;
     }
 
-    let currentScenario = document.querySelector('.scenario:not([style*="display: none"])');
-    currentScenario.style.display = 'none';
-
-    let nextScenario = currentScenario.nextElementSibling;
-    if (nextScenario && nextScenario.classList.contains('scenario')) {
-        nextScenario.style.display = 'block';
-    } else {
-        document.getElementById('results-screen').style.display = 'block';
-        determineSkinType();
-    }
+    nextScene();
 }
 
-function determineSkinType() {
+function showResults() {
+    document.getElementById('game-screen').style.display = 'none';
+
     let skinType = 'Normal Skin';
     let maxScore = Math.max(skinTypeScore.dry, skinTypeScore.oily, skinTypeScore.sensitive, skinTypeScore.normal);
 
@@ -55,6 +69,7 @@ function determineSkinType() {
         skinType = 'Sensitive Skin';
     }
 
+    document.getElementById('results-screen').style.display = 'block';
     document.getElementById('skin-type-result').innerText = skinType;
 
     let recommendationText = '';
@@ -72,5 +87,5 @@ function determineSkinType() {
 
 function claimTrialPack() {
     alert("Your trial pack is on its way!");
-    // This could redirect to a landing page or show a form for user details.
+    // Implement form submission or redirect here.
 }
