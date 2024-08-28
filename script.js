@@ -19,20 +19,20 @@ function nextScene() {
 
     switch(currentScene) {
         case 0:
-            dialogue.innerText = "You wake up feeling a bit dry. What do you do?";
-            sceneButton.innerText = "Moisturize";
+            dialogue.innerText = "You wake up with your skin feeling a bit dry. What's your first move?";
+            sceneButton.innerText = "Apply Moisturizer";
             sceneButton.setAttribute('onclick', 'chooseOption("moisturize")');
             character.src = 'character-think.png';
             break;
         case 1:
-            dialogue.innerText = "It's a sunny day! How do you protect your skin?";
-            sceneButton.innerText = "Apply Sunscreen";
+            dialogue.innerText = "It's a bright sunny day! How do you shield your skin?";
+            sceneButton.innerText = "Use Sunscreen";
             sceneButton.setAttribute('onclick', 'chooseOption("sunscreen")');
             character.src = 'character-sun.jpeg';
             break;
         case 2:
-            dialogue.innerText = "You notice some redness. What’s your next move?";
-            sceneButton.innerText = "Soothe it";
+            dialogue.innerText = "You notice some redness. What's your plan of action?";
+            sceneButton.innerText = "Soothe with Cream";
             sceneButton.setAttribute('onclick', 'chooseOption("soothe")');
             character.src = 'character-redness.png';
             break;
@@ -87,5 +87,4 @@ function showResults() {
 
 function claimTrialPack() {
     alert("Your trial pack is on its way!");
-    // Implement form submission or redirect here.
 }
