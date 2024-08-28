@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
+    height: 100%;
 }
 
 h1, h2 {
@@ -66,12 +67,28 @@ button:hover {
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+}
+
+/* Add this part for better adaptability and responsiveness */
+@media (max-width: 768px) {
+    #welcome-screen {
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 769px) {
+    #welcome-screen {
+        background-position: top;
+        background-size: contain;
+    }
 }
 
 #welcome-screen h1, #welcome-screen button {
