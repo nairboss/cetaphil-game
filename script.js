@@ -22,19 +22,19 @@ function nextScene() {
             dialogue.innerText = "You wake up feeling a bit dry. What do you do?";
             sceneButton.innerText = "Moisturize";
             sceneButton.setAttribute('onclick', 'chooseOption("moisturize")');
-            character.src = 'images/character-think.png';
+            character.src = 'character-think.png';
             break;
         case 1:
             dialogue.innerText = "It's a sunny day! How do you protect your skin?";
             sceneButton.innerText = "Apply Sunscreen";
             sceneButton.setAttribute('onclick', 'chooseOption("sunscreen")');
-            character.src = 'images/character-sun.png';
+            character.src = 'character-sun.jpeg';
             break;
         case 2:
             dialogue.innerText = "You notice some redness. What’s your next move?";
             sceneButton.innerText = "Soothe it";
             sceneButton.setAttribute('onclick', 'chooseOption("soothe")');
-            character.src = 'images/character-redness.png';
+            character.src = 'character-redness.png';
             break;
         case 3:
             showResults();
