@@ -15,7 +15,7 @@ function startGame() {
 function nextScene() {
     const dialogue = document.getElementById('dialogue');
     const character = document.getElementById('character');
-    const sceneButtonContainer = document.getElementById('scene-buttons');  // Corrected to match HTML
+    const sceneButtonContainer = document.getElementById('scene-buttons');
 
     switch(currentScene) {
         case 0:
@@ -49,6 +49,36 @@ function nextScene() {
             character.src = 'character-weather.webp';
             break;
         case 3:
+            dialogue.innerText = "How do you describe your pores?";
+            sceneButtonContainer.innerHTML = `
+                <button onclick="chooseOption('small')">A) Small and almost invisible</button>
+                <button onclick="chooseOption('large')">B) Large and noticeable, especially on my T-zone</button>
+                <button onclick="chooseOption('balanced')">C) Visible but not too large</button>
+                <button onclick="chooseOption('clogged')">D) Small but tend to get clogged easily</button>
+            `;
+            character.src = 'character-pores.webp';
+            break;
+        case 4:
+            dialogue.innerText = "What’s your biggest skincare concern?";
+            sceneButtonContainer.innerHTML = `
+                <button onclick="chooseOption('dryness')">A) Dryness and flakiness</button>
+                <button onclick="chooseOption('oiliness')">B) Excess oil and shine</button>
+                <button onclick="chooseOption('balance')">C) Keeping my skin balanced</button>
+                <button onclick="chooseOption('redness')">D) Redness and sensitivity</button>
+            `;
+            character.src = 'character-concern.webp';
+            break;
+        case 5:
+            dialogue.innerText = "How does your skin feel after cleansing?";
+            sceneButtonContainer.innerHTML = `
+                <button onclick="chooseOption('tight')">A) Tight and dry</button>
+                <button onclick="chooseOption('fresh')">B) Fresh but oily soon after</button>
+                <button onclick="chooseOption('clean')">C) Clean and normal</button>
+                <button onclick="chooseOption('irritated')">D) Slightly irritated or red</button>
+            `;
+            character.src = 'character-cleansing.webp';
+            break;
+        case 6:
             showResults();
             break;
     }
@@ -56,23 +86,19 @@ function nextScene() {
 }
 
 function chooseOption(option) {
-    if (option === 'dry') {
+    if (option === 'dry' || option === 'tight' || option === 'dryness') {
         skinTypeScore.dry++;
-    } else if (option === 'oily') {
+    } else if (option === 'oily' || option === 'oiliness' || option === 'fresh') {
         skinTypeScore.oily++;
-    } else if (option === 'balanced') {
+    } else if (option === 'balanced' || option === 'clean' || option === 'balance') {
         skinTypeScore.normal++;
-    } else if (option === 'sensitive') {
+    } else if (option === 'sensitive' || option === 'reactive' || option === 'redness' || option === 'irritated' || option === 'clogged') {
         skinTypeScore.sensitive++;
-    } else if (option === 'rarely' || option === 'reactive') {
+    } else if (option === 'rarely') {
         skinTypeScore.normal++;
     } else if (option === 'often') {
         skinTypeScore.oily++;
     } else if (option === 'occasionally') {
-        skinTypeScore.sensitive++;
-    } else if (option === 'sunscreen') {
-        skinTypeScore.sensitive++;
-    } else if (option === 'soothe') {
         skinTypeScore.sensitive++;
     }
 
