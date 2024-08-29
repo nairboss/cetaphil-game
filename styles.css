@@ -33,6 +33,9 @@ h1, h2 {
 
 #scene {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centering the content within the scene */
 }
 
 #scene p {
@@ -44,6 +47,7 @@ h1, h2 {
     display: flex;
     flex-direction: column;
     gap: 10px;  /* Adds space between buttons */
+    align-items: center;  /* Centering the buttons within the container */
 }
 
 button {
@@ -54,8 +58,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;  /* Makes the button take full width of its container */
-    max-width: 300px;  /* Optional: limits the maximum width of buttons */
+    max-width: 300px;  /* Limits the maximum width of buttons */
     box-sizing: border-box;  /* Ensures padding is included in the button's width */
+    text-align: center;
 }
 
 button:hover {
