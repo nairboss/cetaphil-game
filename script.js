@@ -36,7 +36,7 @@ function nextScene() {
                 <button onclick="chooseOption('occasionally')">C) Occasionally, here and there</button>
                 <button onclick="chooseOption('reactive')">D) Almost never, but my skin reacts to new products</button>
             `;
-            character.src = 'character-thinking.webp';
+            character.src = 'character-breakout.webp';
             break;
         case 2:
             dialogue.innerText = "How does your skin react to the weather?";
