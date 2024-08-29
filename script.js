@@ -36,14 +36,17 @@ function nextScene() {
                 <button onclick="chooseOption('occasionally')">C) Occasionally, here and there</button>
                 <button onclick="chooseOption('reactive')">D) Almost never, but my skin reacts to new products</button>
             `;
-            character.src = 'character-sun.webp';
+            character.src = 'character-thinking.webp';
             break;
         case 2:
-            dialogue.innerText = "You notice some redness. What’s your next move?";
+            dialogue.innerText = "How does your skin react to the weather?";
             sceneButtonContainer.innerHTML = `
-                <button onclick="chooseOption('soothe')">Soothe it</button>
+                <button onclick="chooseOption('dry')">A) It gets drier in cold weather</button>
+                <button onclick="chooseOption('oily')">B) It becomes oilier in warm weather</button>
+                <button onclick="chooseOption('balanced')">C) It stays the same most of the time</button>
+                <button onclick="chooseOption('sensitive')">D) It gets irritated with extreme changes</button>
             `;
-            character.src = 'character-redness.webp';
+            character.src = 'character-weather.webp';
             break;
         case 3:
             showResults();
@@ -60,6 +63,12 @@ function chooseOption(option) {
     } else if (option === 'balanced') {
         skinTypeScore.normal++;
     } else if (option === 'sensitive') {
+        skinTypeScore.sensitive++;
+    } else if (option === 'rarely' || option === 'reactive') {
+        skinTypeScore.normal++;
+    } else if (option === 'often') {
+        skinTypeScore.oily++;
+    } else if (option === 'occasionally') {
         skinTypeScore.sensitive++;
     } else if (option === 'sunscreen') {
         skinTypeScore.sensitive++;
