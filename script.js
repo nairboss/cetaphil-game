@@ -29,9 +29,12 @@ function nextScene() {
             character.src = 'character-thinking.webp';
             break;
         case 1:
-            dialogue.innerText = "It's a sunny day! How do you protect your skin?";
+            dialogue.innerText = "How often do you experience breakouts?";
             sceneButtonContainer.innerHTML = `
-                <button onclick="chooseOption('sunscreen')">Apply Sunscreen</button>
+                <button onclick="chooseOption('rarely')">A) Rarely, if ever</button>
+                <button onclick="chooseOption('often')">B) Often, especially on my T-zone</button>
+                <button onclick="chooseOption('occasionally')">C) Occasionally, here and there</button>
+                <button onclick="chooseOption('reactive')">D) Almost never, but my skin reacts to new products</button>
             `;
             character.src = 'character-sun.webp';
             break;
