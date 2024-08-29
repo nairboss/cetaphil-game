@@ -19,9 +19,13 @@ function nextScene() {
 
     switch(currentScene) {
         case 0:
-            dialogue.innerText = "You wake up feeling a bit dry. What do you do?";
-            sceneButton.innerText = "Moisturize";
-            sceneButton.setAttribute('onclick', 'chooseOption("moisturize")');
+            dialogue.innerText = "How does your skin feel most of the time?";
+            sceneButtonContainer.innerHTML = `
+                <button onclick="chooseOption('dry')">A) Dry and tight</button>
+                <button onclick="chooseOption('oily')">B) Oily and shiny</button>
+                <button onclick="chooseOption('balanced')">C) Balanced and comfortable</button>
+                <button onclick="chooseOption('sensitive')">D) Sensitive and easily irritated</button>
+            `;
             character.src = 'character-thinking.webp';
             break;
         case 1:
