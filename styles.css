@@ -40,6 +40,12 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
+#scene-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  /* Adds space between buttons */
+}
+
 button {
     padding: 10px 20px;
     background-color: #0056b3;
@@ -47,6 +53,9 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;  /* Makes the button take full width of its container */
+    max-width: 300px;  /* Optional: limits the maximum width of buttons */
+    box-sizing: border-box;  /* Ensures padding is included in the button's width */
 }
 
 button:hover {
