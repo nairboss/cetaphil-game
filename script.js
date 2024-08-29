@@ -15,7 +15,7 @@ function startGame() {
 function nextScene() {
     const dialogue = document.getElementById('dialogue');
     const character = document.getElementById('character');
-    const sceneButton = document.querySelector('#scene button');
+    const sceneButtonContainer = document.getElementById('scene-buttons');  // Corrected to match HTML
 
     switch(currentScene) {
         case 0:
@@ -30,14 +30,16 @@ function nextScene() {
             break;
         case 1:
             dialogue.innerText = "It's a sunny day! How do you protect your skin?";
-            sceneButton.innerText = "Apply Sunscreen";
-            sceneButton.setAttribute('onclick', 'chooseOption("sunscreen")');
+            sceneButtonContainer.innerHTML = `
+                <button onclick="chooseOption('sunscreen')">Apply Sunscreen</button>
+            `;
             character.src = 'character-sun.webp';
             break;
         case 2:
             dialogue.innerText = "You notice some redness. What’s your next move?";
-            sceneButton.innerText = "Soothe it";
-            sceneButton.setAttribute('onclick', 'chooseOption("soothe")');
+            sceneButtonContainer.innerHTML = `
+                <button onclick="chooseOption('soothe')">Soothe it</button>
+            `;
             character.src = 'character-redness.webp';
             break;
         case 3:
@@ -48,8 +50,14 @@ function nextScene() {
 }
 
 function chooseOption(option) {
-    if (option === 'moisturize') {
+    if (option === 'dry') {
         skinTypeScore.dry++;
+    } else if (option === 'oily') {
+        skinTypeScore.oily++;
+    } else if (option === 'balanced') {
+        skinTypeScore.normal++;
+    } else if (option === 'sensitive') {
+        skinTypeScore.sensitive++;
     } else if (option === 'sunscreen') {
         skinTypeScore.sensitive++;
     } else if (option === 'soothe') {
@@ -91,5 +99,4 @@ function showResults() {
 
 function claimTrialPack() {
     alert("Your trial pack is on its way!");
-    // Implement form submission or redirect here.
 }
