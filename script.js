@@ -136,5 +136,5 @@ function showResults() {
 }
 
 function claimTrialPack() {
-    alert("Your trial pack is on its way!");
+    alert("Congratulations! Your trial pack has been added to your cart.");
 }
