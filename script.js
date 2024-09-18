@@ -39,12 +39,12 @@ function nextScene() {
             character.src = 'character-breakout.webp';
             break;
         case 2:
-            dialogue.innerText = "How does your skin react to the weather?";
+            dialogue.innerText = "How does your skin react when the weather gets colder?";
             sceneButtonContainer.innerHTML = `
-                <button onclick="chooseOption('dry')">A) It gets drier in cold weather</button>
-                <button onclick="chooseOption('oily')">B) It becomes oilier in warm weather</button>
-                <button onclick="chooseOption('balanced')">C) It stays the same most of the time</button>
-                <button onclick="chooseOption('sensitive')">D) It gets irritated with extreme changes</button>
+                <button onclick="chooseOption('dry')">A) Needs more care – gets very dry</button>
+                <button onclick="chooseOption('oily')">B) Stays oily</button>
+                <button onclick="chooseOption('balanced')">C) No change</button>
+                <button onclick="chooseOption('sensitive')">D) More sensitive – easily irritated</button>
             `;
             character.src = 'character-weather.webp';
             break;
