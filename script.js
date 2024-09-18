@@ -111,6 +111,8 @@ function showResults() {
     let skinType = 'Normal Skin';
     let maxScore = Math.max(skinTypeScore.dry, skinTypeScore.oily, skinTypeScore.sensitive, skinTypeScore.normal);
 
+    let imagePath = '';
+
     if (skinTypeScore.dry === maxScore) {
         skinType = 'Dry Skin';
     } else if (skinTypeScore.oily === maxScore) {
