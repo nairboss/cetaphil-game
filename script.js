@@ -147,6 +147,8 @@ function showResults() {
 
     document.getElementById('results-screen').style.display = 'block';
 
+}
+
 function claimTrialPack() {
     alert("Congratulations! Your trial pack has been added to your cart.");
 }
