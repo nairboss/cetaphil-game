@@ -127,16 +127,16 @@ function showResults() {
     let recommendationText = '';
     if (skinType === 'Dry Skin') {
         recommendationText = 'We recommend Cetaphil Daily Advance Ultra Hydrating Lotion for deep hydration.';
-        imagePath = 'moisturizing_DAM.jpeg';
+        imagePath = 'moisturizing_DAM.jpg';
     } else if (skinType === 'Oily Skin') {
         recommendationText = 'We recommend Cetaphil Moisturizing Lotion to balance your skin.';
-        imagePath = 'moisturizing_lotion.jpeg';
+        imagePath = 'moisturizing_lotion.jpg';
     } else if (skinType === 'Sensitive Skin') {
         recommendationText = 'We recommend Cetaphil Moisturizing Cream to soothe and protect your skin.';
-        imagePath = 'moisturizing_cream.jpeg';
+        imagePath = 'moisturizing_cream.jpg';
     } else {
         recommendationText = 'We recommend Cetaphil Optimal Hydration Spray for balanced moisture.';
-        imagePath = 'moisturizing_hydration.jpeg';
+        imagePath = 'moisturizing_hydration.jpg';
     }
     document.getElementById('skin-type-result').innerText = skinType;
     document.getElementById('recommendation').innerText = recommendationText;
